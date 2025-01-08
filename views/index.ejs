@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Title name</title>
+
+    <!-- metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    * {
+        font-family: Arial, sans-serif;
+        padding: 20%;
+        max-width: 800px;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        align-items: center;
+        margin: 50px;
+        background-color: cornflowerblue;
+        border: 2px blueviolet solid;
+        box-shadow: 2px 1px;
+    }
+</style>
+
+<body>
+
+    <h1>Equipment description</h1>
+    <p>For optimal testing:
+
+        Light masses (50kg): Any shaker could work, but Shaker 3 is most efficient Medium masses (50-150kg): Shaker 1
+        would
+        be ideal Heavy masses (>150kg): Only Shaker 2 would be suitable, especially at low frequencies
+    </p>
+
+    <p>
+        Shaker 1 (Standard):
+
+        Force: 25kN - Good for medium mass tests
+        Displacement: 16mm - Adequate for most mid-frequency testing
+        Best for: 50-200kg masses in 20-300Hz range
+
+        Shaker 2 (Heavy Duty):
+
+        Force: 35kN - Excellent for heavy mass testing
+        Displacement: 25mm - Can handle low frequency, high displacement
+        Best for: 100-300kg masses, especially at lower frequencies
+
+        Shaker 3 (Compact):
+
+        Force: 15kN - Limited to lighter masses
+        Displacement: 12mm - More restricted in low frequency testing
+        Best for: 50kg masses, higher frequency testing
+    </p>
+    <br>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Shaker Selection</title>
+    </head>
+    <body>
+        <h1>Select a Shaker</h1>
+        <form action="/mssgs" method="POST">
+            <div>
+                <label>Select Shaker:</label>
+                <select name="shaker" required>
+                    <option value="shaker1">Standard Shaker - 25kN, 16mm</option>
+                    <option value="shaker2">Heavy Duty Shaker - 35kN, 25mm</option>
+                    <option value="shaker3">Compact Shaker - 15kN, 12mm</option>
+                </select>
+            </div>
+            <button type="submit">Confirm choice</button>
+        </form>
+    </body>
+    </html>
+</body>
+
+</html>
