@@ -1,6 +1,6 @@
 // setup the env file first
-const dotenv = require('dotenv').config();
-
+//const dotenv = require('dotenv').config();
+/* const bodyParser = require('body-parser'); */ //need to install
 // either defined in env file or 3k by default!
 const PORT = process.env.PORT || 3000;
 
@@ -11,6 +11,7 @@ const app = express();
 
 const shakerRoutes = require('./routes/mssg');
 
+/* app.use(bodyParser.json()); */
 app.use(shakerRoutes);
 /* Code to initialize memory variables (temporary) */
 
@@ -28,8 +29,8 @@ const homeRoutes = require('./routes/home');
 app.use(homeRoutes);
 
 // require the mssg route: the initialization part
-const mssgRoutes = require('./routes/mssg');
-app.use('/mssgs', mssgRoutes);
+/* const mssgRoutes = require('./routes/mssg');
+app.use('/mssgs', mssgRoutes); */
 
 // listen to incoming requests
 app.listen(PORT, () => {

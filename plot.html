@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scatter Plot</title>
+    <!-- Plotly CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="plot"></div>
+
+    <script>
+        // Sample data - replace with your data
+        const data = [
+            { x: 1, y: 23 },
+            { x: 2, y: 45 },
+            { x: 3, y: 17 },
+            { x: 4, y: 32 },
+            { x: 5, y: 52 },
+            { x: 6, y: 28 },
+            { x: 7, y: 41 },
+            { x: 8, y: 37 },
+            { x: 9, y: 29 },
+            { x: 10, y: 43 }
+        ];
+
+        // Plotting functions
+        function createScatterPlot(containerId, data) {
+            const xValues = data.map(point => point.x);
+            const yValues = data.map(point => point.y);
+
+            const trace = {
+                x: xValues,
+                y: yValues,
+                mode: 'markers',
+                type: 'scatter',
+                marker: {
+                    size: 10,
+                    color: 'rgb(51, 204, 153)',
+                    opacity: 0.6
+                }
+            };
+
+            const layout = {
+                title: 'Scatter Plot',
+                xaxis: {
+                    title: 'X Values'
+                },
+                yaxis: {
+                    title: 'Y Values'
+                },
+                height: 600,
+                width: 800
+            };
+
+            Plotly.newPlot(containerId, [trace], layout);
+        }
+
+        function updatePlot(containerId, newData) {
+            const xValues = newData.map(point => point.x);
+            const yValues = newData.map(point => point.y);
+            
+            Plotly.update(containerId, {
+                x: [xValues],
+                y: [yValues]
+            });
+        }
+
+        function clearPlot(containerId) {
+            Plotly.purge(containerId);
+        }
+
+        function addPoints(containerId, newPoints) {
+            const xValues = newPoints.map(point => point.x);
+            const yValues = newPoints.map(point => point.y);
+            
+            Plotly.extendTraces(containerId, {
+                x: [xValues],
+                y: [yValues]
+            }, [0]);
+        }
+
+        // Create initial plot when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createScatterPlot('plot', data);
+        });
+
+        // Example: Add a new point after 3 seconds
+        setTimeout(() => {
+            addPoints('plot', [{ x: 11, y: 48 }]);
+        }, 3000);
+    </script>
+</body>
+</html>
